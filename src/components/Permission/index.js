@@ -1,6 +1,6 @@
 import React from "react";
 
-function Permission({ children, permissionRequired }) {
+function Permission({ children, required }) {
   const user = {
     name: "Lima",
     permissions: ["view_user", "edit_user"]
@@ -8,13 +8,12 @@ function Permission({ children, permissionRequired }) {
 
   const { permissions } = user;
 
-  //return (permissions.some((permission) => permissionRequired.indexOf(permission) >= 0) && <>{children}</>);
-  return permissions.some(
-    (permission) => permissionRequired.indexOf(permission) >= 0
-  ) ? (
-    <>{children}</>
+  //return (permissions.some((permission) => required.indexOf(permission) >= 0) && <>{children}</>);
+  //return permissions.some(r => required.includes(r))
+  return permissions.some((permission) => required.indexOf(permission) >= 0) ? (
+    children
   ) : (
-    <div>Você não tem permissão</div>
+    <span className="d-block text-danger">Você não tem permissão</span>
   );
 }
 
