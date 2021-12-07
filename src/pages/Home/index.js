@@ -5,17 +5,25 @@ import Permission from "../../components/Permission";
 import "./styles.css";
 
 export default function App() {
+  const href = "#";
+
   return (
     <div className="App">
       <h1>Olá, Lima</h1>
-      <Permission permissionRequired={["view_user"]}>
-        <a href="#">Ver usuarios</a>
+      <Permission required={["admin", "view_user"]}>
+        <div>
+          <a href={href}>Ver usuarios</a>
+        </div>
       </Permission>
-      <Permission permissionRequired={["edit_user"]}>
-        <a href="#">Editar usuario</a>
+      <Permission required={["edit_user"]}>
+        <div>
+          <a href={href}>Editar usuario</a>
+        </div>
       </Permission>
-      <Permission permissionRequired={["view_purchase"]}>
-        <a href="#">Ver compras</a>
+      <Permission required={["view_purchase"]}>
+        <div>
+          <a href={href}>Ver compras</a>
+        </div>
       </Permission>
     </div>
   );
